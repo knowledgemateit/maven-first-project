@@ -1,0 +1,59 @@
+
+
+Build Tool:
+
+gradle,nant,pybuilder,maven
+
+
+Maven:  Opensource
+        Java ( pre-requisite)
+		
+		validate
+		compile
+		test
+		Package
+		
+		
+Java  - .java
+
+.jar  - Java archive
+.war - web archive
+.ear - enterprise Archieve 
+
+
+# Update the system
+sudo yum update -y
+
+# Install Amazon Corretto 17 (LTS) - standard for 2026
+sudo yum install java-17-amazon-corretto-devel -y
+
+# Verify Java installation
+java -version
+
+
+sudo yum install maven -y
+
+
+java -version
+mvn --version
+
+mkdir smoke-test
+
+# 1. Generate a sample project
+mvn archetype:generate \
+  -DgroupId=com.axis.test \
+  -DartifactId=smoke-test \
+  -DarchetypeArtifactId=maven-archetype-quickstart \
+  -DinteractiveMode=false
+
+# 2. Navigate and Build
+cd smoke-test
+mvn clean package
+
+# 3. Run the App
+java -cp target/smoke-test-1.0-SNAPSHOT.jar com.axis.test.App
+
+yum install tree git -y
+
+ssh-keygen
+
